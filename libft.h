@@ -6,23 +6,22 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:07:36 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/30 12:36:36 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/07/05 15:07:22 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
+# include <stddef.h>
 # include <unistd.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}				t_list;
+}					t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
