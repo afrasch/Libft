@@ -6,7 +6,7 @@
 #    By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 16:25:20 by afrasch           #+#    #+#              #
-#    Updated: 2021/07/05 14:40:31 by afrasch          ###   ########.fr        #
+#    Updated: 2021/07/05 20:05:00 by afrasch          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,40 +47,40 @@ ft_substr.c \
 ft_tolower.c \
 ft_toupper.c \
 
-SRC_BONUS = ft_lstadd_back.c \
-ft_lstadd_front.c \
-ft_lstclear.c \
-ft_lstdelone.c \
-ft_lstiter.c \
-ft_lstlast.c \
-ft_lstmap.c \
-ft_lstnew.c \
-ft_lstsize.c \
+OBJ	=	$(SRC:.c=.o)
 
-OBJ = $(SRC:.c=.o)
+BONUS_SRC	=	ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c \
 
-OBJ_BONUS = $(SRC_BONUS: .c=.o)
+BONUS_OBJ	=	$(BONUS_SRC:.c=.o)
 
-INCLUDES = libft.h
+CC		=		gcc
 
-CC = gcc
+CFLAGS	=		-Wall -Wextra -Werror
 
-CFLAGS = -Wall -Wextra -Werror
+AR		=		ar rc
 
-all: $(NAME)
+RM		=		rm -f
 
-$(NAME): $(OBJ) bonus
-	ar rc $(NAME) $(OBJ)
+all:	bonus
 
-.phony: clean fclean re bonus
+$(NAME):	$(OBJ)
+	$(AR) $(NAME) $(OBJ)
+
+bonus:	$(NAME) $(BONUS_OBJ)
+	$(AR) $(NAME) $(BONUS_OBJ)
 
 clean:
-	/bin/rm -f $(OBJ) $(OBJ_BONUS)
+	$(RM) $(OBJ) $(BONUS_OBJ)
 
-fclean: clean
-	/bin/rm -f $(NAME)
+fclean:	clean
+	$(RM) $(NAME)
 
-re: fclean all
-
-bonus: $(OBJ_BONUS)
-	ar cr $(NAME) $(OBJ_BONUS)
+re:	fclean all
