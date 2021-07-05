@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:30:41 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/22 18:35:51 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/06/25 20:28:35 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		total_length;
 	char	*str;
 
+	if (!s1 || !s2)
+		return (0);
 	total_length = (ft_strlen((char *)s1) + ft_strlen((char *)s2) + 1);
 	str = (char *) malloc(sizeof(char) * total_length);
-	if (str == 0 || !s1 || !s2)
+	if (str == 0)
 		return (0);
 	i = 0;
 	j = 0;

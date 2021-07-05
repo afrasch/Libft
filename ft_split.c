@@ -6,7 +6,7 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 09:54:55 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/25 16:28:35 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/06/30 14:40:55 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,31 @@
 
 static int	ft_word_count(const char *s, char c)
 {
-	int	tf;
+	int	truefalse;
 	int	words;
+	int	i;
 
-	tf = 0;
+	truefalse = 0;
 	words = 0;
-	while (*s)
+	i = 0;
+	while (s[i])
 	{
-		if (*s == c)
-			tf = 0;
-		else if (tf == 0)
+		if (s[i] == c)
+			truefalse = 0;
+		else if (truefalse == 0)
 		{
 			words++;
-			tf = 1;
+			truefalse = 1;
 		}
-		s++;
+		i++;
 	}
 	return (words);
+}
+
+static char	**ft_null(char **arr, int j)
+{
+	arr[j] = 0;
+	return (arr);
 }
 
 char	**ft_split(char const *s, char c)
@@ -41,13 +49,15 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		start;
 
-	if (!s || !c)
+	if (!s)
 		return (0);
 	words = ft_word_count(s, c);
-	if (!(arr = malloc(sizeof(char *) * (words + 1))))
+	arr = malloc(sizeof(char *) * (words + 1));
+	if (!arr)
 		return (0);
-	i = j = 0;
-	while (j <= words)
+	i = 0;
+	j = -1;
+	while (++j < words)
 	{
 		while (s[i] == c && s[i])
 			i++;
@@ -56,8 +66,6 @@ char	**ft_split(char const *s, char c)
 			i++;
 		arr[j] = ft_substr(s, start, i - start);
 		i++;
-		j++;
 	}
-	arr[j] = 0;
-	return (arr);
+	return (ft_null(arr, j));
 }

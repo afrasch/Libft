@@ -6,7 +6,7 @@
 #    By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 16:25:20 by afrasch           #+#    #+#              #
-#    Updated: 2021/06/25 14:51:21 by afrasch          ###   ########.fr        #
+#    Updated: 2021/07/05 14:40:31 by afrasch          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ ft_strjoin.c \
 ft_strlcat.c \
 ft_strlcpy.c \
 ft_strlen.c \
+ft_strmapi.c \
 ft_strncmp.c \
 ft_strnstr.c \
 ft_strrchr.c \
@@ -46,7 +47,19 @@ ft_substr.c \
 ft_tolower.c \
 ft_toupper.c \
 
+SRC_BONUS = ft_lstadd_back.c \
+ft_lstadd_front.c \
+ft_lstclear.c \
+ft_lstdelone.c \
+ft_lstiter.c \
+ft_lstlast.c \
+ft_lstmap.c \
+ft_lstnew.c \
+ft_lstsize.c \
+
 OBJ = $(SRC:.c=.o)
+
+OBJ_BONUS = $(SRC_BONUS: .c=.o)
 
 INCLUDES = libft.h
 
@@ -56,16 +69,18 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) bonus
 	ar rc $(NAME) $(OBJ)
 
+.phony: clean fclean re bonus
+
 clean:
-	/bin/rm -f $(OBJ)
+	/bin/rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
 
-norme:
-	norminette $(SRC)
+bonus: $(OBJ_BONUS)
+	ar cr $(NAME) $(OBJ_BONUS)

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 16:41:29 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/27 14:54:44 by afrasch          ###   ########.fr       */
+/*   Created: 2021/06/29 21:18:50 by afrasch           #+#    #+#             */
+/*   Updated: 2021/06/30 07:58:00 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
+	int		i;
+	t_list	*conductor;
 
 	i = 0;
-	while (i <= ft_strlen((char *)str))
+	conductor = lst;
+	while (conductor)
 	{
-		if (str[i] == (unsigned char)c)
-			return ((char *)str + i);
-		else
-			i++;
+		conductor = conductor->next;
+		i++;
 	}
-	return (0);
+	return (i);
 }
