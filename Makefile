@@ -6,7 +6,7 @@
 #    By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 16:25:20 by afrasch           #+#    #+#              #
-#    Updated: 2021/07/05 20:05:00 by afrasch          ###   ########.fr        #
+#    Updated: 2021/07/07 14:21:10 by afrasch          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ ft_isascii.c \
 ft_isdigit.c \
 ft_isprint.c \
 ft_itoa.c \
-ft_memccpy.c \
 ft_memchr.c \
 ft_memcmp.c \
 ft_memcpy.c \
@@ -34,6 +33,7 @@ ft_putstr_fd.c \
 ft_split.c \
 ft_strchr.c \
 ft_strdup.c \
+ft_striteri.c \
 ft_strjoin.c \
 ft_strlcat.c \
 ft_strlcpy.c \

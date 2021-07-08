@@ -6,33 +6,50 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 20:56:58 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/28 18:14:26 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/07/07 14:30:14 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static int	ft_digit_count(int nbr)
 {
-	char	*str;
+	int	digits;
 
-	if (n == -2147483648)
+	digits = 0;
+	if (nbr <= 0)
+		digits++;
+	while (nbr != 0)
+	{
+		nbr = nbr / 10;
+		digits++;
+	}
+	return (digits);
+}
+
+char	*ft_itoa(int nbr)
+{
+	char	*result;
+	int		digits;
+
+	if (nbr == -2147483648)
 		return (ft_strdup("-2147483648"));
-	str = (char *) malloc(sizeof(char) * 2);
-	if (!str)
+	digits = ft_digit_count(nbr);
+	result = (char *)malloc(digits + 1);
+	if (!result)
 		return (0);
-	else if (n < 0)
+	result[digits] = '\0';
+	if (nbr < 0)
+		result[0] = '-';
+	else if (nbr == 0)
+		result[0] = '0';
+	while (nbr != 0)
 	{
-		str[0] = '-';
-		str[1] = '\0';
-		str = ft_strjoin(str, ft_itoa(-n));
+		--digits;
+		if (nbr < 0)
+			nbr *= -1;
+		result[digits] = (nbr % 10) + '0';
+		nbr = nbr / 10;
 	}
-	else if (n > 9)
-		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
-	else
-	{
-		str[0] = n + '0';
-		str[1] = '\0';
-	}
-	return (str);
+	return (result);
 }
