@@ -6,12 +6,15 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:00:06 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/23 16:05:01 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/10/25 21:10:48 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Outputs the integer ’n’ to the given filedescriptor.
+   Checks the cases int min, n with one and n with more than one digit
+   Goes recursively */
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)

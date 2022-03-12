@@ -6,12 +6,13 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 18:39:34 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/28 15:19:02 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/10/25 22:01:25 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Checks for c in set. Returns 1 if found. */
 static int	ft_check_set_for_char(char c, const char *set)
 {
 	int	i;
@@ -26,6 +27,9 @@ static int	ft_check_set_for_char(char c, const char *set)
 	return (0);
 }
 
+/* Allocates and returns a copy of’s1’ with the characters specified in ’set’
+   removed from the beginning and the end of the string. Returns the trimmed
+   string or NULL if the allocation fails. */
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*strimmed;

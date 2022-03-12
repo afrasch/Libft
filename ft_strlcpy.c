@@ -6,12 +6,14 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:30:54 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/27 14:15:52 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/10/25 21:28:40 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Copies up to size - 1 characters from the NUL-terminated string src to dst,
+   NUL-terminating the result. Returns the length of src. */
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;

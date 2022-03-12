@@ -6,12 +6,13 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 20:56:58 by afrasch           #+#    #+#             */
-/*   Updated: 2021/07/07 14:30:14 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/11/04 19:06:39 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Counts the digits of a number in base 10. */
 static int	ft_digit_count(int nbr)
 {
 	int	digits;
@@ -27,6 +28,8 @@ static int	ft_digit_count(int nbr)
 	return (digits);
 }
 
+/* Allocates and returns a string representing the integer received as an
+   argument. Returns NULL if allocation fails. */
 char	*ft_itoa(int nbr)
 {
 	char	*result;

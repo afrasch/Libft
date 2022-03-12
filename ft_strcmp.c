@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 17:36:21 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/22 11:12:42 by afrasch          ###   ########.fr       */
+/*   Created: 2021/11/04 15:40:03 by afrasch           #+#    #+#             */
+/*   Updated: 2021/11/04 15:47:14 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+/* Compares str1 and str2. Returns 0 if they are identical or the amount of
+   different chars (>0 if str1 more, <0 if str2 is more). */
+int	ft_strcmp(const char *str1, const char *str2)
 {
 	size_t	i;
 
-	if (!dest && !src)
-		return (0);
 	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-		if (((unsigned char *)src)[i] == (unsigned char)c)
-			 return (dest + i + 1);
+	while (str1[i] != 0 && str1[i] == str2[i])
 		i++;
-	}
-	return (0);
+	return (((unsigned char *)str1)[i] - ((unsigned char *)str2)[i]);
 }

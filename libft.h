@@ -6,12 +6,16 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 16:07:36 by afrasch           #+#    #+#             */
-/*   Updated: 2021/07/07 14:21:33 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/12/21 14:31:20 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 # include <stdlib.h>
 # include <stddef.h>
@@ -23,9 +27,12 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-int		ft_atoi(const char *str);
+double	ft_atod(const char *str, int *error);
+int		ft_atoi(const char *str, int *error);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
+void	ft_free_array(char **arr);
+int		ft_intlen(long long num, int base);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -52,6 +59,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int c);
+int		ft_strcmp(const char *str1, const char *str2);
 char	*ft_strdup(const char *str1);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -66,5 +74,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char	*get_next_line(int fd);
 
 #endif

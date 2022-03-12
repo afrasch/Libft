@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/30 09:36:26 by afrasch           #+#    #+#             */
-/*   Updated: 2021/10/25 21:12:10 by afrasch          ###   ########.fr       */
+/*   Created: 2021/08/21 13:27:38 by afrasch           #+#    #+#             */
+/*   Updated: 2021/10/25 21:14:16 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Takes as a parameter an element and frees the memory of the element’s
-   content using the function ’del’ given as a parameter. */
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+/* Takes a number and its base. Counts digits and returns the result. */
+int	ft_intlen(long long num, int base)
 {
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
+	int	i;
+
+	i = 1;
+	while (num >= base || num <= -base)
+	{
+		i++;
+		num /= base;
+	}
+	return (i);
 }

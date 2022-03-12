@@ -6,12 +6,13 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/20 20:16:44 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/22 11:13:26 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/10/25 21:33:40 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Returns the length of str.*/
 size_t	ft_strlen(char *str)
 {
 	int	i;

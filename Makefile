@@ -6,15 +6,18 @@
 #    By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 16:25:20 by afrasch           #+#    #+#              #
-#    Updated: 2021/07/07 14:21:10 by afrasch          ###   ########.fr        #
+#    Updated: 2021/12/21 17:00:53 by afrasch          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = ft_atoi.c \
+SRC = ft_atod.c \
+ft_atoi.c \
 ft_bzero.c \
 ft_calloc.c \
+ft_free_array.c \
+ft_intlen.c \
 ft_isalnum.c \
 ft_isalpha.c \
 ft_isascii.c \
@@ -32,6 +35,7 @@ ft_putnbr_fd.c \
 ft_putstr_fd.c \
 ft_split.c \
 ft_strchr.c \
+ft_strcmp.c \
 ft_strdup.c \
 ft_striteri.c \
 ft_strjoin.c \
@@ -46,6 +50,7 @@ ft_strtrim.c \
 ft_substr.c \
 ft_tolower.c \
 ft_toupper.c \
+get_next_line.c \
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -69,18 +74,21 @@ AR		=		ar rc
 
 RM		=		rm -f
 
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 all:	bonus
 
 $(NAME):	$(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
 
 bonus:	$(NAME) $(BONUS_OBJ)
-	$(AR) $(NAME) $(BONUS_OBJ)
+	@$(AR) $(NAME) $(BONUS_OBJ)
 
 clean:
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	@$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean:	clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re:	fclean all

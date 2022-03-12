@@ -6,10 +6,13 @@
 /*   By: afrasch <afrasch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:33:30 by afrasch           #+#    #+#             */
-/*   Updated: 2021/06/20 21:14:49 by afrasch          ###   ########.fr       */
+/*   Updated: 2021/10/25 22:06:57 by afrasch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+/* Converts uppercase to lowercase. */
 int	ft_tolower(int c)
 {
 	if (c > 64 && c < 91)
