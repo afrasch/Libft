@@ -18,9 +18,11 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	char	*str;
 
+	if (SIZE_MAX / size > count)
+		return (NULL);
 	str = malloc(count * size);
-	if (str == 0)
-		return (0);
+	if (str == NULL)
+		return (NULL);
 	ft_bzero(str, count * size);
 	return (str);
 }
